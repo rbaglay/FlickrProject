@@ -11,8 +11,18 @@
 #import "FKViewController.h"
 #import "FKFlickrPeopleGetInfo.h"
 #import "UIImageView+AFNetworking.h"
+#import "MyCollectionViewCell.h"
+#import "MBProgressHUD.h"
+#import "CHTCollectionViewWaterfallLayout.h"
+#import "DetailedMyViewController.h"
 
-@interface MyViewController ()
+#define column_count 3
+#define CELL_IDENTIFIER @"cell"
+#define HEADER_IDENTIFIER @"WaterfallHeader"
+#define FOOTER_IDENTIFIER @"WaterfallFooter"
+
+@interface MyViewController () <UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout>
+
 @property (nonatomic, retain) FKFlickrNetworkOperation *myPhotostreamOp;
 @property (nonatomic, retain) FKFlickrNetworkOperation *myGetUserInfoOp;
 @property (nonatomic, retain) NSArray *photoURLs;
@@ -20,6 +30,7 @@
 @property (nonatomic, retain) NSString *userId;
 @property (nonatomic, retain) NSString *iconserver;
 @property (nonatomic, retain) NSString *iconfarm;
+@property (nonatomic, strong) NSArray *cellSizes;
 @end
 
 @implementation MyViewController
@@ -27,6 +38,8 @@
 - (void) dealloc {
     [self.myPhotostreamOp cancel];
     [self.myGetUserInfoOp cancel];
+    _collectionView.delegate = nil;
+    _collectionView.dataSource = nil;
     
 }
 
@@ -35,6 +48,7 @@
     [super viewDidLoad];
     self.backgraundImage.image = [UIImage imageNamed:@"dnepr"];
       [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
+
 
   }
     
@@ -54,7 +68,9 @@
                     self.userName.text = fullName;
                     [self getInfoUser:userId];
                     
-                    self.myPhotostreamOp = [[FlickrKit sharedFlickrKit] call:@"flickr.photos.search" args:@{@"user_id": userId, @"per_page": @"15"} maxCacheAge:FKDUMaxAgeNeverCache completion:^(NSDictionary *response, NSError *error)
+                    if (self.photoURLs == nil) {
+
+                    self.myPhotostreamOp = [[FlickrKit sharedFlickrKit] call:@"flickr.photos.search" args:@{@"user_id": userId, @"per_page": @"100"} maxCacheAge:FKDUMaxAgeNeverCache completion:^(NSDictionary *response, NSError *error)
                     {
                         dispatch_async(dispatch_get_main_queue(), ^
                         {
@@ -63,20 +79,14 @@
                                 NSMutableArray *photoURLs = [NSMutableArray array];
                                 for (NSDictionary *photoDictionary in [response valueForKeyPath:@"photos.photo"])
                                 {
-                                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeSmall240 fromPhotoDictionary:photoDictionary];
+                                    NSURL *url = [[FlickrKit sharedFlickrKit] photoURLForSize:FKPhotoSizeLarge1024 fromPhotoDictionary:photoDictionary];
                                     [photoURLs addObject:url];
                                 }
                                 self.photoURLs = photoURLs;
-                                for (NSURL *url in self.photoURLs)
-                                {
-                                    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-                                    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-                                    {
-                                        UIImage *image = [[UIImage alloc] initWithData:data];
-                                        [self addImageToView:image];
-                                    }];
-                                }
-                            }
+                                [self.collectionView reloadData];
+                                [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+                                                        }
                             else
                             {
                                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.description preferredStyle:UIAlertControllerStyleAlert];
@@ -87,6 +97,7 @@
                             }
                         });
                     }];
+                    }
                 }
             }
         );}
@@ -111,8 +122,6 @@
                     self.iconfarm = iconfarm;
                 
                 NSString *urlString = [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/buddyicons/%@.jpg", self.iconfarm, self.iconserver, self.userId];
-                
-                
                 NSURL *url = [NSURL URLWithString:urlString];
                 
                 [self.userPhoto setImageWithURL:url];
@@ -126,24 +135,19 @@
     
     }
 
-- (void) addImageToView:(UIImage *)image {
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    
-    CGFloat width = CGRectGetWidth(self.imageScrollView.frame);
-    CGFloat imageRatio = image.size.width / image.size.height;
-    CGFloat height = width / imageRatio;
-    CGFloat x = 0;
-    CGFloat y = self.imageScrollView.contentSize.height;
-    
-    imageView.frame = CGRectMake(x, y, width, height);
-    
-    CGFloat newHeight = self.imageScrollView.contentSize.height + height;
-    self.imageScrollView.contentSize = CGSizeMake(320, newHeight);
-    
-    [self.imageScrollView addSubview:imageView];
+#pragma mark - Accessors
+
+- (NSArray *)cellSizes {
+    if (!_cellSizes) {
+        _cellSizes = @[
+                       [NSValue valueWithCGSize:CGSizeMake(400, 550)],
+                       [NSValue valueWithCGSize:CGSizeMake(1000, 665)],
+                       [NSValue valueWithCGSize:CGSizeMake(1024, 689)],
+                       [NSValue valueWithCGSize:CGSizeMake(640, 427)]
+                       ];
+    }
+    return _cellSizes;
 }
-
-
 
 #pragma mark - Action
 
@@ -165,5 +169,53 @@
     
 }
 
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSInteger countItems = [self.photoURLs count];
+    return countItems;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
+    
+    NSURL *url = [self.photoURLs objectAtIndex:indexPath.item];
+    
+    [cell addImageToCell:url];
+
+    return cell;
+}
+
+#pragma mark - CHTCollectionViewDelegateWaterfallLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.cellSizes[indexPath.item % 4] CGSizeValue];
+}
+
+#pragma mark - Navigation Orientation
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    [self updateLayoutForOrientation:toInterfaceOrientation];
+}
+
+- (void)updateLayoutForOrientation:(UIInterfaceOrientation)orientation {
+    CHTCollectionViewWaterfallLayout *layout =
+    (CHTCollectionViewWaterfallLayout *)self.collectionView.collectionViewLayout;
+    layout.columnCount = UIInterfaceOrientationIsPortrait(orientation) ? 2 : 3;
+}
+
+
+#pragma mark - Navigation
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+   
+    if ([sender isKindOfClass:[MyCollectionViewCell class]])
+    {
+        MyCollectionViewCell *cell = sender;
+        DetailedMyViewController *detailedControler = segue.destinationViewController;
+        detailedControler.imageURL = cell.url;
+    }
+}
 
 @end

@@ -100,17 +100,18 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-//    [self.view endEditing:YES];
+    [self.view endEditing:YES];
     [self searchModel];
     
 }
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
-   
-}
+//-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+//    [searchBar resignFirstResponder];
+//}
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [self.mySearchOp cancel];
     searchBar.text = nil;
+    [searchBar resignFirstResponder];
 }
 
 #pragma mark - Navigation

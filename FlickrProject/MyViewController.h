@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (weak, nonatomic) IBOutlet UIImageView *backgraundImage;
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-- (void) addImageToView:(UIImage *)image;
+
 @end

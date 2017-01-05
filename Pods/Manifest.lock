@@ -14,19 +14,24 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - CHTCollectionViewWaterfallLayout (0.9.5):
+    - CHTCollectionViewWaterfallLayout/ObjC (= 0.9.5)
+  - CHTCollectionViewWaterfallLayout/ObjC (0.9.5)
   - FlickrKit (1.0.8)
   - MBProgressHUD (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking
+  - CHTCollectionViewWaterfallLayout
   - FlickrKit
   - MBProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
   FlickrKit: beadf880a10ccaa2f13666d04112324fe08815e2
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
 
-PODFILE CHECKSUM: aae21810f9e088a57fe25e79abd0998116f2bdb5
+PODFILE CHECKSUM: ba6108f6156c15c81b90c934014aff8bb1355390
 
 COCOAPODS: 1.0.1

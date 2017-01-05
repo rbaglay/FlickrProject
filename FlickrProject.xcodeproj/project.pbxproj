@@ -13,6 +13,8 @@
 		693BE4181DF760E2007D7EA8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693BE4171DF760E2007D7EA8 /* SystemConfiguration.framework */; };
 		693BE4201DFC28AF007D7EA8 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693BE41F1DFC28AE007D7EA8 /* SearchViewController.m */; };
 		69405D5D1E12C59E00AD36FA /* DetailedPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D5C1E12C59E00AD36FA /* DetailedPhotoViewController.m */; };
+		69405D871E1D2BDB00AD36FA /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D861E1D2BDB00AD36FA /* MyCollectionViewCell.m */; };
+		69405D8A1E1E762400AD36FA /* DetailedMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D891E1E762400AD36FA /* DetailedMyViewController.m */; };
 		69909AB61DFEE2BC00404085 /* InteresingPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69909AB51DFEE2BC00404085 /* InteresingPhotoViewController.m */; };
 		69909AB91DFEF08000404085 /* ChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69909AB81DFEF08000404085 /* ChooseViewController.m */; };
 		69ACAB1B1DD5CC3D00FEE351 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ACAB1A1DD5CC3D00FEE351 /* main.m */; };
@@ -40,6 +42,10 @@
 		693BE41F1DFC28AE007D7EA8 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		69405D5B1E12C59E00AD36FA /* DetailedPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedPhotoViewController.h; sourceTree = "<group>"; };
 		69405D5C1E12C59E00AD36FA /* DetailedPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedPhotoViewController.m; sourceTree = "<group>"; };
+		69405D851E1D2BDB00AD36FA /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		69405D861E1D2BDB00AD36FA /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		69405D881E1E762400AD36FA /* DetailedMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedMyViewController.h; sourceTree = "<group>"; };
+		69405D891E1E762400AD36FA /* DetailedMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedMyViewController.m; sourceTree = "<group>"; };
 		69909AB41DFEE2BC00404085 /* InteresingPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteresingPhotoViewController.h; sourceTree = "<group>"; };
 		69909AB51DFEE2BC00404085 /* InteresingPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteresingPhotoViewController.m; sourceTree = "<group>"; };
 		69909AB71DFEF08000404085 /* ChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseViewController.h; sourceTree = "<group>"; };
@@ -74,6 +80,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		69405D821E1CF93400AD36FA /* MyViewController */ = {
+			isa = PBXGroup;
+			children = (
+				693BE4131DF722AF007D7EA8 /* MyViewController.h */,
+				693BE4141DF722AF007D7EA8 /* MyViewController.m */,
+				69405D851E1D2BDB00AD36FA /* MyCollectionViewCell.h */,
+				69405D861E1D2BDB00AD36FA /* MyCollectionViewCell.m */,
+				69405D881E1E762400AD36FA /* DetailedMyViewController.h */,
+				69405D891E1E762400AD36FA /* DetailedMyViewController.m */,
+			);
+			name = MyViewController;
+			sourceTree = "<group>";
+		};
+		69405D831E1CF95D00AD36FA /* AddPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				69909AB71DFEF08000404085 /* ChooseViewController.h */,
+				69909AB81DFEF08000404085 /* ChooseViewController.m */,
+			);
+			name = AddPhoto;
+			sourceTree = "<group>";
+		};
+		69405D841E1CF9A100AD36FA /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				693BE41E1DFC28AE007D7EA8 /* SearchViewController.h */,
+				693BE41F1DFC28AE007D7EA8 /* SearchViewController.m */,
+				69405D5B1E12C59E00AD36FA /* DetailedPhotoViewController.h */,
+				69405D5C1E12C59E00AD36FA /* DetailedPhotoViewController.m */,
+				6914EE0A1E0F01DC009E6196 /* PhotoCellTableViewCell.h */,
+				6914EE0B1E0F01DC009E6196 /* PhotoCellTableViewCell.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		69ACAB0D1DD5CC3D00FEE351 = {
 			isa = PBXGroup;
 			children = (
@@ -95,26 +136,19 @@
 		69ACAB181DD5CC3D00FEE351 /* FlickrProject */ = {
 			isa = PBXGroup;
 			children = (
+				69405D841E1CF9A100AD36FA /* Search */,
+				69405D831E1CF95D00AD36FA /* AddPhoto */,
+				69405D821E1CF93400AD36FA /* MyViewController */,
 				69ACAB1C1DD5CC3D00FEE351 /* AppDelegate.h */,
 				69ACAB1D1DD5CC3D00FEE351 /* AppDelegate.m */,
 				69ACAB321DDDD33D00FEE351 /* FKViewController.h */,
 				69ACAB331DDDD33D00FEE351 /* FKViewController.m */,
-				69909AB71DFEF08000404085 /* ChooseViewController.h */,
-				69909AB81DFEF08000404085 /* ChooseViewController.m */,
 				69909AB41DFEE2BC00404085 /* InteresingPhotoViewController.h */,
 				69909AB51DFEE2BC00404085 /* InteresingPhotoViewController.m */,
-				693BE4131DF722AF007D7EA8 /* MyViewController.h */,
-				693BE4141DF722AF007D7EA8 /* MyViewController.m */,
 				693BE4101DF72011007D7EA8 /* FKTabBarController.h */,
 				693BE4111DF72011007D7EA8 /* FKTabBarController.m */,
 				69ACAB381DDDDB7200FEE351 /* FKPhotosViewController.h */,
 				69ACAB391DDDDB7200FEE351 /* FKPhotosViewController.m */,
-				693BE41E1DFC28AE007D7EA8 /* SearchViewController.h */,
-				693BE41F1DFC28AE007D7EA8 /* SearchViewController.m */,
-				69405D5B1E12C59E00AD36FA /* DetailedPhotoViewController.h */,
-				69405D5C1E12C59E00AD36FA /* DetailedPhotoViewController.m */,
-				6914EE0A1E0F01DC009E6196 /* PhotoCellTableViewCell.h */,
-				6914EE0B1E0F01DC009E6196 /* PhotoCellTableViewCell.m */,
 				69ACAB351DDDD58400FEE351 /* FKAuthViewController.h */,
 				69ACAB361DDDD58400FEE351 /* FKAuthViewController.m */,
 				69ACAB221DD5CC3D00FEE351 /* Main.storyboard */,
@@ -281,9 +315,11 @@
 				693BE4121DF72011007D7EA8 /* FKTabBarController.m in Sources */,
 				69ACAB341DDDD33D00FEE351 /* FKViewController.m in Sources */,
 				69405D5D1E12C59E00AD36FA /* DetailedPhotoViewController.m in Sources */,
+				69405D871E1D2BDB00AD36FA /* MyCollectionViewCell.m in Sources */,
 				69909AB91DFEF08000404085 /* ChooseViewController.m in Sources */,
 				69ACAB3A1DDDDB7200FEE351 /* FKPhotosViewController.m in Sources */,
 				69ACAB371DDDD58400FEE351 /* FKAuthViewController.m in Sources */,
+				69405D8A1E1E762400AD36FA /* DetailedMyViewController.m in Sources */,
 				693BE4201DFC28AF007D7EA8 /* SearchViewController.m in Sources */,
 				693BE4151DF722AF007D7EA8 /* MyViewController.m in Sources */,
 				6914EE0C1E0F01DC009E6196 /* PhotoCellTableViewCell.m in Sources */,
