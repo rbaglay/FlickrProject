@@ -108,11 +108,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-qC-JjG">
-                                <rect key="frame" x="0.0" y="616" width="375" height="2"/>
-                            </progressView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATz-m1-gYq">
-                                <rect key="frame" x="16" y="559" width="160" height="30"/>
+                                <rect key="frame" x="16" y="556" width="160" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="160" id="GEF-cs-WHU"/>
@@ -129,7 +126,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HO0-By-gWW">
-                                <rect key="frame" x="199" y="559" width="160" height="30"/>
+                                <rect key="frame" x="199" y="556" width="160" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Library"/>
                                 <userDefinedRuntimeAttributes>
@@ -145,20 +142,27 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="96d-nw-FjQ">
                                 <rect key="frame" x="37" y="48" width="300" height="300"/>
                             </imageView>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="qTX-qC-JjG">
+                                <rect key="frame" x="0.0" y="605" width="375" height="6"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="C5Q-yL-Bk0"/>
+                                </constraints>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ATz-m1-gYq" secondAttribute="bottom" constant="81" id="14g-sc-EB3"/>
                             <constraint firstItem="ATz-m1-gYq" firstAttribute="firstBaseline" secondItem="HO0-By-gWW" secondAttribute="baseline" id="2Pt-mB-cgk"/>
                             <constraint firstItem="96d-nw-FjQ" firstAttribute="top" secondItem="KXb-9d-qR3" secondAttribute="bottom" constant="28" id="2kp-eb-pK5"/>
                             <constraint firstAttribute="trailing" secondItem="96d-nw-FjQ" secondAttribute="trailing" constant="38" id="4Lq-2B-H8R"/>
-                            <constraint firstItem="qTX-qC-JjG" firstAttribute="top" secondItem="HO0-By-gWW" secondAttribute="bottom" constant="27" id="7Ig-yK-X1r"/>
+                            <constraint firstItem="qTX-qC-JjG" firstAttribute="centerX" secondItem="96d-nw-FjQ" secondAttribute="centerX" id="9hY-fe-CT9"/>
                             <constraint firstItem="ATz-m1-gYq" firstAttribute="baseline" secondItem="HO0-By-gWW" secondAttribute="firstBaseline" id="DSO-Pe-74F"/>
+                            <constraint firstItem="qTX-qC-JjG" firstAttribute="top" secondItem="ATz-m1-gYq" secondAttribute="bottom" constant="19" id="I3e-Jo-uL7"/>
                             <constraint firstAttribute="trailing" secondItem="qTX-qC-JjG" secondAttribute="trailing" id="Mc8-k5-Wyn"/>
                             <constraint firstAttribute="bottomMargin" secondItem="96d-nw-FjQ" secondAttribute="bottom" constant="319" id="OQh-o1-NIc"/>
-                            <constraint firstItem="qTX-qC-JjG" firstAttribute="top" secondItem="KXb-9d-qR3" secondAttribute="bottom" constant="596" id="UlE-xH-VAl"/>
-                            <constraint firstItem="qTX-qC-JjG" firstAttribute="leading" secondItem="290-PJ-GCU" secondAttribute="leading" id="au9-IQ-n4x"/>
                             <constraint firstItem="96d-nw-FjQ" firstAttribute="leading" secondItem="290-PJ-GCU" secondAttribute="leading" constant="37" id="bjA-1n-sgW"/>
-                            <constraint firstItem="BIm-t8-JHy" firstAttribute="top" secondItem="qTX-qC-JjG" secondAttribute="bottom" id="fdF-7m-Urk"/>
                             <constraint firstItem="HO0-By-gWW" firstAttribute="leading" secondItem="ATz-m1-gYq" secondAttribute="trailing" constant="23" id="iHN-Gx-KzK"/>
                             <constraint firstItem="ATz-m1-gYq" firstAttribute="top" secondItem="HO0-By-gWW" secondAttribute="top" id="mS3-ya-a1K"/>
                             <constraint firstItem="ATz-m1-gYq" firstAttribute="leading" secondItem="290-PJ-GCU" secondAttribute="leadingMargin" id="waD-un-ORf"/>
@@ -234,7 +238,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" indicatorStyle="black" maximumZoomScale="4" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="URZ-cc-KcJ">
                                 <rect key="frame" x="0.0" y="175" width="375" height="443"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="bVh-pa-Fbz" customClass="CHTCollectionViewWaterfallLayout"/>
+                                <collectionViewLayout key="collectionViewLayout" id="2bP-ee-5x3" customClass="CHTCollectionViewWaterfallLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="cell" id="9mD-KO-cEI" customClass="MyCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -244,7 +248,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7U-I6-M61">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                             <integer key="value" value="10"/>
@@ -314,16 +318,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="80M-1A-kYf">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="80M-1A-kYf">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="y60-MT-9Py" appends="YES" id="Roo-en-k4s"/>
+                                </connections>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="80M-1A-kYf" secondAttribute="trailing" id="1wS-d3-M6r"/>
-                            <constraint firstItem="xuo-iC-pxw" firstAttribute="top" secondItem="80M-1A-kYf" secondAttribute="bottom" id="9NK-2F-qhp"/>
-                            <constraint firstItem="80M-1A-kYf" firstAttribute="top" secondItem="v1O-Ou-v4g" secondAttribute="bottom" id="Rj7-Pw-LEV"/>
-                            <constraint firstItem="80M-1A-kYf" firstAttribute="leading" secondItem="frG-5T-0ol" secondAttribute="leading" id="pW9-4L-Xhs"/>
+                            <constraint firstAttribute="trailing" secondItem="80M-1A-kYf" secondAttribute="trailing" id="7gG-RH-lMD"/>
+                            <constraint firstItem="80M-1A-kYf" firstAttribute="top" secondItem="v1O-Ou-v4g" secondAttribute="bottom" id="bEi-gn-uom"/>
+                            <constraint firstItem="xuo-iC-pxw" firstAttribute="top" secondItem="80M-1A-kYf" secondAttribute="bottom" id="iym-S7-NjU"/>
+                            <constraint firstItem="80M-1A-kYf" firstAttribute="leading" secondItem="frG-5T-0ol" secondAttribute="leading" id="xnR-de-pbb"/>
                         </constraints>
                     </view>
                     <connections>
@@ -331,6 +339,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gn8-br-6He" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="y60-MT-9Py">
+                    <connections>
+                        <action selector="pinch:" destination="L5B-wr-OdA" id="O16-IO-S9g"/>
+                        <outlet property="delegate" destination="L5B-wr-OdA" id="QOu-pF-GOz"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="20" y="2778.2608695652175"/>
         </scene>
@@ -383,6 +397,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="0Ap-Gn-eBC" secondAttribute="bottom" id="Upq-mT-Chm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cellImageView" destination="0Ap-Gn-eBC" id="VC5-pE-eK1"/>
                                             <segue destination="ur7-EO-QfA" kind="show" id="8CD-ZD-Qgn"/>
@@ -428,11 +443,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mlf-6H-622">
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mlf-6H-622">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="lNQ-lL-poE" appends="YES" id="6s4-9F-pVa"/>
+                                </connections>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Mlf-6H-622" secondAttribute="bottom" id="TX1-u3-scO"/>
                             <constraint firstItem="Mlf-6H-622" firstAttribute="leading" secondItem="SqP-oR-97U" secondAttribute="leading" id="Xec-2n-vMP"/>
@@ -445,6 +464,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NDp-yI-cpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="lNQ-lL-poE">
+                    <connections>
+                        <action selector="pinch:" destination="ur7-EO-QfA" id="RJV-tK-9p6"/>
+                        <outlet property="delegate" destination="ur7-EO-QfA" id="iem-SY-XWd"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4028" y="2722"/>
         </scene>

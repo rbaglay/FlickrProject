@@ -15,6 +15,8 @@
 		69405D5D1E12C59E00AD36FA /* DetailedPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D5C1E12C59E00AD36FA /* DetailedPhotoViewController.m */; };
 		69405D871E1D2BDB00AD36FA /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D861E1D2BDB00AD36FA /* MyCollectionViewCell.m */; };
 		69405D8A1E1E762400AD36FA /* DetailedMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D891E1E762400AD36FA /* DetailedMyViewController.m */; };
+		69405D8E1E1FDAAA00AD36FA /* HeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D8D1E1FDAAA00AD36FA /* HeaderCollectionReusableView.m */; };
+		69405D911E1FE7F100AD36FA /* FooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69405D901E1FE7F100AD36FA /* FooterCollectionReusableView.m */; };
 		69909AB61DFEE2BC00404085 /* InteresingPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69909AB51DFEE2BC00404085 /* InteresingPhotoViewController.m */; };
 		69909AB91DFEF08000404085 /* ChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69909AB81DFEF08000404085 /* ChooseViewController.m */; };
 		69ACAB1B1DD5CC3D00FEE351 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ACAB1A1DD5CC3D00FEE351 /* main.m */; };
@@ -24,7 +26,6 @@
 		69ACAB291DD5CC3D00FEE351 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69ACAB271DD5CC3D00FEE351 /* LaunchScreen.storyboard */; };
 		69ACAB341DDDD33D00FEE351 /* FKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ACAB331DDDD33D00FEE351 /* FKViewController.m */; };
 		69ACAB371DDDD58400FEE351 /* FKAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ACAB361DDDD58400FEE351 /* FKAuthViewController.m */; };
-		69ACAB3A1DDDDB7200FEE351 /* FKPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69ACAB391DDDDB7200FEE351 /* FKPhotosViewController.m */; };
 		D8448ECB2FA68EB2CD4F9B2D /* libPods-FlickrProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA56F807E3D3CB98BC3E18A /* libPods-FlickrProject.a */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,10 @@
 		69405D861E1D2BDB00AD36FA /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
 		69405D881E1E762400AD36FA /* DetailedMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailedMyViewController.h; sourceTree = "<group>"; };
 		69405D891E1E762400AD36FA /* DetailedMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailedMyViewController.m; sourceTree = "<group>"; };
+		69405D8C1E1FDAAA00AD36FA /* HeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		69405D8D1E1FDAAA00AD36FA /* HeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		69405D8F1E1FE7F100AD36FA /* FooterCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FooterCollectionReusableView.h; sourceTree = "<group>"; };
+		69405D901E1FE7F100AD36FA /* FooterCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FooterCollectionReusableView.m; sourceTree = "<group>"; };
 		69909AB41DFEE2BC00404085 /* InteresingPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteresingPhotoViewController.h; sourceTree = "<group>"; };
 		69909AB51DFEE2BC00404085 /* InteresingPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InteresingPhotoViewController.m; sourceTree = "<group>"; };
 		69909AB71DFEF08000404085 /* ChooseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseViewController.h; sourceTree = "<group>"; };
@@ -62,8 +67,6 @@
 		69ACAB331DDDD33D00FEE351 /* FKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKViewController.m; sourceTree = "<group>"; };
 		69ACAB351DDDD58400FEE351 /* FKAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKAuthViewController.h; sourceTree = "<group>"; };
 		69ACAB361DDDD58400FEE351 /* FKAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKAuthViewController.m; sourceTree = "<group>"; };
-		69ACAB381DDDDB7200FEE351 /* FKPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKPhotosViewController.h; sourceTree = "<group>"; };
-		69ACAB391DDDDB7200FEE351 /* FKPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FKPhotosViewController.m; sourceTree = "<group>"; };
 		6D07D49DE4CB28DE95E57F4C /* Pods-FlickrProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrProject/Pods-FlickrProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +92,10 @@
 				69405D861E1D2BDB00AD36FA /* MyCollectionViewCell.m */,
 				69405D881E1E762400AD36FA /* DetailedMyViewController.h */,
 				69405D891E1E762400AD36FA /* DetailedMyViewController.m */,
+				69405D8C1E1FDAAA00AD36FA /* HeaderCollectionReusableView.h */,
+				69405D8D1E1FDAAA00AD36FA /* HeaderCollectionReusableView.m */,
+				69405D8F1E1FE7F100AD36FA /* FooterCollectionReusableView.h */,
+				69405D901E1FE7F100AD36FA /* FooterCollectionReusableView.m */,
 			);
 			name = MyViewController;
 			sourceTree = "<group>";
@@ -115,6 +122,19 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		69405D8B1E1FCB5800AD36FA /* StartVC */ = {
+			isa = PBXGroup;
+			children = (
+				69ACAB321DDDD33D00FEE351 /* FKViewController.h */,
+				69ACAB331DDDD33D00FEE351 /* FKViewController.m */,
+				693BE4101DF72011007D7EA8 /* FKTabBarController.h */,
+				693BE4111DF72011007D7EA8 /* FKTabBarController.m */,
+				69ACAB351DDDD58400FEE351 /* FKAuthViewController.h */,
+				69ACAB361DDDD58400FEE351 /* FKAuthViewController.m */,
+			);
+			name = StartVC;
+			sourceTree = "<group>";
+		};
 		69ACAB0D1DD5CC3D00FEE351 = {
 			isa = PBXGroup;
 			children = (
@@ -136,22 +156,15 @@
 		69ACAB181DD5CC3D00FEE351 /* FlickrProject */ = {
 			isa = PBXGroup;
 			children = (
+				69ACAB1C1DD5CC3D00FEE351 /* AppDelegate.h */,
+				69ACAB1D1DD5CC3D00FEE351 /* AppDelegate.m */,
+				69909AB41DFEE2BC00404085 /* InteresingPhotoViewController.h */,
+				69909AB51DFEE2BC00404085 /* InteresingPhotoViewController.m */,
+				69ACAB221DD5CC3D00FEE351 /* Main.storyboard */,
+				69405D8B1E1FCB5800AD36FA /* StartVC */,
 				69405D841E1CF9A100AD36FA /* Search */,
 				69405D831E1CF95D00AD36FA /* AddPhoto */,
 				69405D821E1CF93400AD36FA /* MyViewController */,
-				69ACAB1C1DD5CC3D00FEE351 /* AppDelegate.h */,
-				69ACAB1D1DD5CC3D00FEE351 /* AppDelegate.m */,
-				69ACAB321DDDD33D00FEE351 /* FKViewController.h */,
-				69ACAB331DDDD33D00FEE351 /* FKViewController.m */,
-				69909AB41DFEE2BC00404085 /* InteresingPhotoViewController.h */,
-				69909AB51DFEE2BC00404085 /* InteresingPhotoViewController.m */,
-				693BE4101DF72011007D7EA8 /* FKTabBarController.h */,
-				693BE4111DF72011007D7EA8 /* FKTabBarController.m */,
-				69ACAB381DDDDB7200FEE351 /* FKPhotosViewController.h */,
-				69ACAB391DDDDB7200FEE351 /* FKPhotosViewController.m */,
-				69ACAB351DDDD58400FEE351 /* FKAuthViewController.h */,
-				69ACAB361DDDD58400FEE351 /* FKAuthViewController.m */,
-				69ACAB221DD5CC3D00FEE351 /* Main.storyboard */,
 				69ACAB251DD5CC3D00FEE351 /* Assets.xcassets */,
 				69ACAB271DD5CC3D00FEE351 /* LaunchScreen.storyboard */,
 				69ACAB2A1DD5CC3D00FEE351 /* Info.plist */,
@@ -311,13 +324,14 @@
 			files = (
 				69ACAB1E1DD5CC3D00FEE351 /* AppDelegate.m in Sources */,
 				69ACAB1B1DD5CC3D00FEE351 /* main.m in Sources */,
+				69405D911E1FE7F100AD36FA /* FooterCollectionReusableView.m in Sources */,
 				69909AB61DFEE2BC00404085 /* InteresingPhotoViewController.m in Sources */,
 				693BE4121DF72011007D7EA8 /* FKTabBarController.m in Sources */,
 				69ACAB341DDDD33D00FEE351 /* FKViewController.m in Sources */,
 				69405D5D1E12C59E00AD36FA /* DetailedPhotoViewController.m in Sources */,
 				69405D871E1D2BDB00AD36FA /* MyCollectionViewCell.m in Sources */,
 				69909AB91DFEF08000404085 /* ChooseViewController.m in Sources */,
-				69ACAB3A1DDDDB7200FEE351 /* FKPhotosViewController.m in Sources */,
+				69405D8E1E1FDAAA00AD36FA /* HeaderCollectionReusableView.m in Sources */,
 				69ACAB371DDDD58400FEE351 /* FKAuthViewController.m in Sources */,
 				69405D8A1E1E762400AD36FA /* DetailedMyViewController.m in Sources */,
 				693BE4201DFC28AF007D7EA8 /* SearchViewController.m in Sources */,

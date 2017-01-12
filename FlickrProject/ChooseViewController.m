@@ -20,6 +20,7 @@
     [super viewDidLoad];
     [self.addPhotoOutlet setImage:[UIImage imageNamed:@"camera-7"] forState:UIControlStateNormal];
     [self.addPhotofromLibraryOutlet setImage:[UIImage imageNamed:@"photo-7"] forState:UIControlStateNormal];
+    self.progress.progress = 0.0;
     // Do any additional setup after loading the view.
     }
 

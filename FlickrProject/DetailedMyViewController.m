@@ -9,7 +9,8 @@
 #import "DetailedMyViewController.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface DetailedMyViewController ()
+@interface DetailedMyViewController () <UIGestureRecognizerDelegate>
+
 
 @end
 
@@ -25,22 +26,33 @@
     NSURLRequest *imageRequest = [NSURLRequest requestWithURL:self.imageURL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
     
     [self.detailedImage setImageWithURLRequest:imageRequest placeholderImage:[UIImage imageNamed:@"logo"] success:nil failure:nil];
-    // Do any additional setup after loading the view.
+
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Action
+
+- (IBAction)pinch:(UIPinchGestureRecognizer *)sender {
+    CGFloat lastScaleFactor = 1;
+    CGFloat factor = [(UIPinchGestureRecognizer *) sender scale];
+    
+    
+    
+    if (factor > 1) { // увеличиваем размеры квадрата
+        
+       self.detailedImage.transform = CGAffineTransformMakeScale(lastScaleFactor + (factor - 1),
+                                                     lastScaleFactor + (factor - 1));
+    } else { // уменьшаем размеры
+        self.detailedImage.transform = CGAffineTransformMakeScale(lastScaleFactor * factor,
+                                                     lastScaleFactor * factor);
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (factor > 1){
+            lastScaleFactor += (factor - 1);
+        } else {
+            lastScaleFactor *= factor;
+        }
+    }
+
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

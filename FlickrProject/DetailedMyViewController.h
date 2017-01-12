@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailedMyViewController : UIViewController
+- (IBAction)pinch:(UIPinchGestureRecognizer *)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *detailedImage;
 @property (strong, nonatomic) NSURL *imageURL;
 @end

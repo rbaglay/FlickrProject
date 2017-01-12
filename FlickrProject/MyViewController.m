@@ -15,6 +15,8 @@
 #import "MBProgressHUD.h"
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "DetailedMyViewController.h"
+#import "HeaderCollectionReusableView.h"
+#import "FooterCollectionReusableView.h"
 
 #define column_count 3
 #define CELL_IDENTIFIER @"cell"
@@ -48,6 +50,17 @@
     [super viewDidLoad];
     self.backgraundImage.image = [UIImage imageNamed:@"dnepr"];
       [self.navigationController.navigationBar setBarTintColor:[UIColor blackColor]];
+    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
+    
+    layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.headerHeight = 20;
+    layout.footerHeight = 0;
+    layout.minimumColumnSpacing = 20;
+    layout.minimumInteritemSpacing = 30;
+    [self.collectionView registerClass:[HeaderCollectionReusableView class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:HEADER_IDENTIFIER];
+    [self.collectionView registerClass:[FooterCollectionReusableView class] forSupplementaryViewOfKind:CHTCollectionElementKindSectionFooter withReuseIdentifier:FOOTER_IDENTIFIER];
+    
+    self.collectionView.collectionViewLayout = layout;
 
 
   }
@@ -175,6 +188,11 @@
     NSInteger countItems = [self.photoURLs count];
     return countItems;
 }
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
     
@@ -184,6 +202,28 @@
 
     return cell;
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    UICollectionReusableView *reusableView = nil;
+    
+    if ([kind isEqualToString:CHTCollectionElementKindSectionHeader]) {
+       HeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                          withReuseIdentifier:HEADER_IDENTIFIER
+                                                                 forIndexPath:indexPath];
+        NSString *title = [NSString stringWithFormat:@"У Вас %li фотографий", [self.photoURLs count]];
+        headerView.title = title;
+        reusableView = headerView;
+    }
+    else if ([kind isEqualToString:CHTCollectionElementKindSectionFooter]) {
+       FooterCollectionReusableView *footerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                                          withReuseIdentifier:FOOTER_IDENTIFIER
+                                                                 forIndexPath:indexPath];
+        reusableView = footerView;
+    }
+
+    return reusableView;
+}
+
 
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout
 

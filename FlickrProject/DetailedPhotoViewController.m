@@ -29,4 +29,31 @@
     [self.detailedImage setImageWithURLRequest:imageRequest placeholderImage:[UIImage imageNamed:@"logo"] success:nil failure:nil];
 }
 
+#pragma mark - Action
+
+- (IBAction)pinch:(UIPinchGestureRecognizer *)sender {
+    CGFloat lastScaleFactor = 1;
+    CGFloat factor = [(UIPinchGestureRecognizer *) sender scale];
+    
+    
+    
+    if (factor > 1) { // увеличиваем размеры квадрата
+        
+        self.detailedImage.transform = CGAffineTransformMakeScale(lastScaleFactor + (factor - 1),
+                                                                  lastScaleFactor + (factor - 1));
+    } else { // уменьшаем размеры
+        self.detailedImage.transform = CGAffineTransformMakeScale(lastScaleFactor * factor,
+                                                                  lastScaleFactor * factor);
+    }
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        if (factor > 1){
+            lastScaleFactor += (factor - 1);
+        } else {
+            lastScaleFactor *= factor;
+        }
+    }
+    
+}
+
+
 @end
